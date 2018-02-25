@@ -19,7 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "./css/bootstrap.cyborg.min.css",
+        "../node_modules/font-awesome/css/font-awesome.min.css",
+        "../node_modules/angular2-toaster/toaster.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

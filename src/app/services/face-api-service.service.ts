@@ -41,6 +41,10 @@ export class FaceApiService {
     return this.http.get<any[]>(`${this.baseUrl}/persongroups/${personGroupId}/persons`, httpOptions);    
   }
 
+  getPerson(personGroupId, personId) {
+    return this.http.get<any[]>(`${this.baseUrl}/persongroups/${personGroupId}/persons/${personId}`, httpOptions);    
+  }
+
   // ***** Person Operations *****
 
   createPerson(personGroupId, person) {
@@ -72,13 +76,31 @@ export class FaceApiService {
   }
 
   addPersonFace(personGroupId, personId, url) {
-    return this.http.post<any>(`${this.baseUrl}/persongroups/${personGroupId}/persons/${personId}/persistedfaces?userData=${url}`, { url: url} , httpOptions);
+    return this.http.post<any>(`${this.baseUrl}/persongroups/${personGroupId}/persons/${personId}/persistedfaces?userData=${url}`, { url: url}, httpOptions);
   }
 
   deletePersonFace(personGroupId, personId, faceId) {
     return this.http.delete(`${this.baseUrl}/persongroups/${personGroupId}/persons/${personId}/persistedfaces/${faceId}`, httpOptions);
   }
-  
+
+
+  // ***** Face Operations *****
+
+  detect(url) {
+    return this.http.post<any[]>(`${this.baseUrl}/detect?returnFaceLandmarks=false&returnFaceAttributes=age,gender,smile,glasses,emotion,facialHair`, { url: url }, httpOptions);
+  }
+
+  identify(personGroupId, faceIds) {
+    let request = {
+      personGroupId: personGroupId,
+      faceIds: faceIds,
+      confidenceThreshold: 0.4
+    };
+    return this.http.post<any[]>(`${this.baseUrl}/identify`, request, httpOptions);
+  }
+
+
+
 }
 
 // private (non-exported)

@@ -83,6 +83,15 @@ export class FaceApiService {
     return this.http.delete(`${this.baseUrl}/persongroups/${personGroupId}/persons/${personId}/persistedfaces/${faceId}`, httpOptions);
   }
 
+  // ***** Face List Operations *****
+
+  createFaceList(faceListId) {
+    return this.http.put(`${this.baseUrl}/facelists/${faceListId}`, { name: faceListId }, httpOptions);
+  }
+
+  addFace(faceListId, url) {
+    return this.http.post(`${this.baseUrl}/facelists/${faceListId}/persistedFaces`, { url: url }, httpOptions);
+  }
 
   // ***** Face Operations *****
 
@@ -98,6 +107,16 @@ export class FaceApiService {
     };
     return this.http.post<any[]>(`${this.baseUrl}/identify`, request, httpOptions);
   }
+
+  group(faceIds) {
+    return this.http.post<any>(`${this.baseUrl}/group`, { faceIds: faceIds }, httpOptions);
+  }
+
+  findSimilar(faceListId, faceId) {
+    let request = { faceId: faceId, faceListId: faceListId };
+    return this.http.post<any>(`${this.baseUrl}/findsimilars`, request, httpOptions);
+  }
+
 
 
 

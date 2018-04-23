@@ -17,6 +17,8 @@ import { InputBoxComponent } from './input-box/input-box.component';
 import { InputBoxService } from './input-box/input-box.service';
 import { LoadingModule } from 'ngx-loading';
 import { ToasterModule } from 'angular2-toaster';
+import { FaceGroupingComponent } from './face-grouping/face-grouping.component';
+import { FindSimilarComponent } from './find-similar/find-similar.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ToasterModule } from 'angular2-toaster';
     HomeComponent,
     ConfigurationComponent,
     FaceTesterComponent,
-    InputBoxComponent
+    InputBoxComponent,
+    FaceGroupingComponent,
+    FindSimilarComponent
   ],
   imports: [
     BrowserModule,

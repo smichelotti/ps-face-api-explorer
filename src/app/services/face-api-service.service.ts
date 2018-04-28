@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
 @Injectable()
 export class FaceApiService {
 
-  private baseUrl = 'https://westus.api.cognitive.microsoft.com/face/v1.0';
+  private baseUrl = '<specify Face API base URL here>';
 
   constructor(private http: HttpClient) { }
 
@@ -127,6 +127,6 @@ export class FaceApiService {
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Ocp-Apim-Subscription-Key': '7f58203764a64c8292d696506067a544'
+    'Ocp-Apim-Subscription-Key': '<specify Face API key here>'
   })
 };

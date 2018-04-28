@@ -12,8 +12,7 @@ export class FaceTesterComponent implements OnInit {
   loading = false;
   public detectedFaces: any;
   public identifiedPersons = [];
-  //public imageUrl = 'https://psfaceapicourse.blob.core.windows.net/images/170705133020_1_900x600.jpg';
-  public imageUrl = 'https://psfaceapicourse.blob.core.windows.net/images/dw-jp-presentation.jpg';
+  public imageUrl: string;
   public multiplier: number;
   public personGroups = [];
   public selectedFace: any;

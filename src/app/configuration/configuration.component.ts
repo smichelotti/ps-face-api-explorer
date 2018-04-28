@@ -56,7 +56,6 @@ export class ConfigurationComponent implements OnInit {
   personClick(person) {
     this.selectedPerson = person;
     this.faceApi.getPersonFaces(this.selectedGroupId, this.selectedPerson.personId).subscribe(data => { 
-      console.log('**person faces ', data);
       this.personFaces = data;
     });
   }
